@@ -2,7 +2,61 @@
 
 ----
 ### mockAPI: [API endpoint] (https://5db85da7177b350014ac796d.mockapi.io/api/v1/records)   
- 
+    
+### 注意事项：
+
+#### 1. Webpack 4.X打包失败   
+
+```
+npm install jquery --save // Bootstrap4.x 依赖JQuery，所以需要先安装JQuery
+npm install popper.js --save // Bootstrap4.x 依赖Popper，所以需要先安装Popper
+npm install bootstrap --save // 安装Bootstrap4.x
+
+```   
+#### 2. 安装 gh-pages
+   
+   ```
+   npm install gh-pages --save-dev  //通过 gh-pages 中间件，可以把 build 文件下的文件推送到 GitHub，并且创建 gh-pages branch
+   ```   
+      
+
+#### 3. 修改 package.json   
+   
+
+```
+{
+    "name": "react_demo",
+    "version": "1.1.0",
+    "private": true,
+  + "homepage": "./" // 表示你访问的页面
+},
+
+```
+   
+
+> 注意：homepage 不要设置成 github page上生成的那个链接路径，比如https://username.github.io/react_demo/。
+> 如果设置成上面的连接，build打的包会这所有路径前面加上react_demo。
+> 比如 index.html 文件中对同等目录下的文件引用应该是 src='./index.css'，结果会变成src='./react_demo/index.css'，这样部署后肯定无法访问，所有资源都找不到。
+   
+#### 4. 增加npm scripts命令，推送gh-pages   
+
+```
+"scripts": {
+        ...
+  + "predeploy": "npm run build" , // 将你的项目预编译成静态文件放在build文件夹
+  + "deploy": "gh-pages -d build"  // 是使用gh-pages 部署你的build文件夹下的内容
+},
+```
+   
+
+#### 5. 打包   
+
+```
+npm run build
+npm run deploy
+```
+   
+   
 ----
 
 ![](https://github.com/TienOUC/Account/blob/master/Account/accounts-app/readmeImg/0.jpg)
