@@ -2,7 +2,7 @@ import React from 'react'
 
 const AmountBox = ({text, type, amount}) => {
     return (
-        <div className = "col">
+        <div className = "col text-center">
             <div className = "card">
                 <div className = {`card-header bg-${type} text-white`}>
                     {text}
