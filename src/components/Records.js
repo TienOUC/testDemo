@@ -150,5 +150,4 @@ class Records extends React.Component {
         }
       }
       
-      
       export default Records;
