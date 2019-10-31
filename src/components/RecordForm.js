@@ -1,5 +1,6 @@
 import React from 'react';
 import * as RecordsAPI from '../utils/RecordsAPI'
+import 'bootstrap/dist/css/bootstrap.css'
 
 export default class RecordForm extends React.Component {
     constructor(props) {

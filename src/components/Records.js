@@ -1,7 +1,7 @@
 import React from 'react';
 import Record from './Record'
 //import { getJSON } from 'jquery'  //按需导入，只需要getJSON
-// import axios from 'axios'
+import axios from 'axios'
 import * as RecordsAPI from '../utils/RecordsAPI'
 import RecordForm from './RecordForm'
 import AmountBox from './AmountBox'
