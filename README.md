@@ -1,5 +1,6 @@
-
-> mockAPI API endpoint (https://5db85da7177b350014ac796d.mockapi.io/api/v1/records)
+[预览](https://willtien.com/Account-app/)
+---
+> mockAPI: [API endpoint] (https://5db85da7177b350014ac796d.mockapi.io/api/v1/records)
 
 ![](https://github.com/TienOUC/Account/blob/master/Account/accounts-app/readmeImg/0.jpg)
 
