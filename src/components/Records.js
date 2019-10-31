@@ -5,6 +5,7 @@ import axios from 'axios'
 import * as RecordsAPI from '../utils/RecordsAPI'
 import RecordForm from './RecordForm'
 import AmountBox from './AmountBox'
+import 'bootstrap/dist/css/bootstrap.css'
 
 class Records extends React.Component {
   constructor() {
