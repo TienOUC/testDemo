@@ -44,8 +44,8 @@ class Records extends React.Component {
       })
     )
   }
-//add new Record
-  addRecord(record){
+  //add new Record
+  addRecord(record) {
     this.setState({
       error: null,
       isLoaded: true,
@@ -56,11 +56,11 @@ class Records extends React.Component {
     })
   }
 
-//update Record
-  updateRecord(record, data){
+  //update Record
+  updateRecord(record, data) {
     const recordIndex = this.state.records.indexOf(record)
-    const newRecords = this.state.records.map((item, index)=>{
-      if(index !== recordIndex){
+    const newRecords = this.state.records.map((item, index) => {
+      if (index !== recordIndex) {
         return item
       }
       return {
@@ -72,8 +72,8 @@ class Records extends React.Component {
       records: newRecords
     })
   }
-//delete Record
-  deleteRecord(record){
+  //delete Record
+  deleteRecord(record) {
     const recordIndex = this.state.records.indexOf(record)
     const newRecords = this.state.records.filter((item, index) => index !== recordIndex)
     this.setState({
@@ -81,28 +81,28 @@ class Records extends React.Component {
     })
   }
 
-  credits(){
+  credits() {
     let credits = this.state.records.filter((record) => {
       return record.amount >= 0
     })
     return credits.reduce((prev, curr) => {
       // return prev + Number.parseInt(curr.amount, 0)
-      return prev + Number.parseFloat(curr.amount, 0).toFixed(2)
-    },0)
+      return (prev + Number.parseFloat(curr.amount, 0)).toFixed(2)
+    }, 0)
   }
 
-  debit(){
+  debit() {
     let credits = this.state.records.filter((record) => {
       return record.amount < 0
     })
     return credits.reduce((prev, curr) => {
       // return prev + Number.parseInt(curr.amount, 0)
-      return prev + Number.parseFloat(curr.amount, 0).toFixed(2)
-    },0)
+      return prev + Number.parseFloat(curr.amount, 0)
+    }, 0)
   }
-  
-  balance(){
-    return this.credits() + this.debit()
+
+  balance() {
+    return this.credits()*1 + this.debit()*1
   }
 
 
@@ -116,40 +116,40 @@ class Records extends React.Component {
       recordsComponent = <div>Loading...</div>;
     } else {
       recordsComponent = (
-          <table className="table table-bordered" >
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Title</th>
-                <th>Amount</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {records.map((record) => (<Record 
-                key={record.id} 
-                record = {record} 
-                handleEditRecord = {this.updateRecord.bind(this)}
-                handleDeleteRecord = {this.deleteRecord.bind(this)}
-                />)
-              )}
-            </tbody>
-          </table>
-          );
-        }
-        return (
-           <div>
-              <h2>Records</h2>
-              <div className = "row mb-3">
-                <AmountBox text ="Credits" type = "success" amount = {this.credits()}/>
-                <AmountBox text ="Debit" type = "danger" amount = {this.debit()}/>
-                <AmountBox text ="Balance" type = "info" amount = {this.balance()}/>
-              </div>
-              <RecordForm handleNewRecord = { this.addRecord.bind(this) }/>
-              {recordsComponent}
-           </div>
-          )
-        }
-      }
-      
-      export default Records;
+        <table className="table table-bordered" >
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {records.map((record) => (<Record
+              key={record.id}
+              record={record}
+              handleEditRecord={this.updateRecord.bind(this)}
+              handleDeleteRecord={this.deleteRecord.bind(this)}
+            />)
+            )}
+          </tbody>
+        </table>
+      );
+    }
+    return (
+      <div>
+        <h2>Records</h2>
+        <div className="row mb-3">
+          <AmountBox text="Credits" type="success" amount={this.credits()} />
+          <AmountBox text="Debit" type="danger" amount={this.debit()} />
+          <AmountBox text="Balance" type="info" amount={this.balance()} />
+        </div>
+        <RecordForm handleNewRecord={this.addRecord.bind(this)} />
+        {recordsComponent}
+      </div>
+    )
+  }
+}
+
+export default Records;

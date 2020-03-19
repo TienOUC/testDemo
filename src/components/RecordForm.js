@@ -54,17 +54,17 @@ export default class RecordForm extends React.Component {
 
     render() {
         return (
-            <form className = 'form-inline mb-3' onSubmit = { this.handleSubmit.bind(this) }>
-                <div className = "form-group mr-2">
-                    <input type = "text" className = "form-control" onChange = { this.handleChange.bind(this) } placeholder = "Date" name = "date" value = { this.state.date }></input>
+            <form className='form-inline mb-3' onSubmit={this.handleSubmit.bind(this)}>
+                <div className="form-group mr-2">
+                    <input type="text" className="form-control" onChange={this.handleChange.bind(this)} placeholder="Date" name="date" value={this.state.date}></input>
                 </div>
-                <div className = "form-group mr-2">
-                    <input type = "text" className = "form-control" onChange = { this.handleChange.bind(this) } placeholder = "Title" name = "title" value = { this.state.title} ></input>
+                <div className="form-group mr-2">
+                    <input type="text" className="form-control" onChange={this.handleChange.bind(this)} placeholder="Title" name="title" value={this.state.title} ></input>
                 </div>
-                <div className = "form-group mr-2">
-                    <input type = "text" className = "form-control" onChange = { this.handleChange.bind(this) } placeholder = "Amount" name = "amount" value = { this.state.amount }></input>
+                <div className="form-group mr-2">
+                    <input type="text" className="form-control" onChange={this.handleChange.bind(this)} placeholder="Amount" name="amount" value={this.state.amount}></input>
                 </div>
-                <button type = "submit" className = "btn btn-primary" disabled = { !this.valid() }>Create Record</button>
+                <button type="submit" className="btn btn-primary" disabled={!this.valid()}>Create Record</button>
             </form>
         );
     }
