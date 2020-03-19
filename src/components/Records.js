@@ -86,7 +86,8 @@ class Records extends React.Component {
       return record.amount >= 0
     })
     return credits.reduce((prev, curr) => {
-      return prev + Number.parseInt(curr.amount, 0)
+      // return prev + Number.parseInt(curr.amount, 0)
+      return prev + Number.parseFloat(curr.amount, 0).toFixed(2)
     },0)
   }
 
@@ -95,7 +96,8 @@ class Records extends React.Component {
       return record.amount < 0
     })
     return credits.reduce((prev, curr) => {
-      return prev + Number.parseInt(curr.amount, 0)
+      // return prev + Number.parseInt(curr.amount, 0)
+      return prev + Number.parseFloat(curr.amount, 0).toFixed(2)
     },0)
   }
   

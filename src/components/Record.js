@@ -46,7 +46,8 @@ export default class Records extends React.Component {
         const record = {
             date : this.refs.date.value,
             title : this.refs.title.value,
-            amount : Number.parseInt(this.refs.amount.value, 0)
+            // amount : Number.parseInt(this.refs.amount.value, 0)
+            amount : Number.parseFloat(this.refs.amount.value, 0).toFixed(2)
         }
 
         RecordsAPI.update(this.props.record.id, record).then(

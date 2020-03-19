@@ -31,7 +31,8 @@ export default class RecordForm extends React.Component {
         const data = {
             date: this.state.date,
             title: this.state.title,
-            amount: Number.parseInt(this.state.amount, 0)
+            // amount: Number.parseInt(this.state.amount, 0)
+            amount: Number.parseFloat(this.state.amount, 0).toFixed(2)
         }
 
         RecordsAPI.create(data).then(
