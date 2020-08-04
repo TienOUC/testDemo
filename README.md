@@ -1,4 +1,4 @@
-### 预览[点击](https://willtien.com/Account-app/)   
+### 预览[点击](https://tienouc.gitee.io/account-app/)   
 
 ----
 ### mockAPI: [API endpoint] (https://5db85da7177b350014ac796d.mockapi.io/api/v1/records)   
